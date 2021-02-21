@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def index
     @sort = params[:sort]||session[:sort]
-    @all_ratings = Movie.ratings
+    @all_ratings = Movie.all_ratings
     @ratings =  params[:ratings] || session[:ratings] || Hash[@all_ratings.map {|rating| [rating, rating]}]
     @movies = Movie.where(rating:@ratings.keys).order(@sort)
     if params[:sort]!=session[:sort] or params[:ratings]!=session[:ratings]
