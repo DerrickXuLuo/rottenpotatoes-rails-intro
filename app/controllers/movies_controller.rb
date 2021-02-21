@@ -5,7 +5,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
-
+  
+  # part 1 complete
   def index
     @movies = Movie.all
     @all_ratings = Movie.all_ratings
